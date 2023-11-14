@@ -13,6 +13,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 export function SiteHeader() {
   const router = useRouter()
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const defaultSearchQuery = searchParams.get("search") ?? ""
   if (pathname.startsWith("/studio")) return null
 
   function onsubmit(e: React.SyntheticEvent<HTMLFormElement>) {
@@ -38,6 +40,7 @@ export function SiteHeader() {
               autoComplete="off"
               placeholder="Search products..."
               className="h-9 lg:w-[300px]"
+              defaultValue={defaultSearchQuery}
             />
           </form>
           <div className="flex items-center space-x-1">

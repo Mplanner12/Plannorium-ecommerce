@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { product } from "@/sanity/schemas/product-schema"
 import { ArrowRight } from "lucide-react"
 import { formatCurrencyString, useShoppingCart } from "use-shopping-cart"
 
@@ -10,32 +11,39 @@ import { getSizeName } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 
-interface Props {}
+interface Props {
+  product: SanityProduct
+}
 
-export function ProductInfo() {
+export function ProductInfo({ product }: Props) {
   function addToCart() {}
 
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-      <h1 className="text-3xl font-bold tracking-tight">Name</h1>
+      <h1 className="text-3xl font-bold tracking-tight">{product.name}</h1>
 
       <div className="mt-3">
         <h2 className="sr-only">Product information</h2>
-        <p className="text-3xl tracking-tight">Price</p>
+        <p className="text-3xl tracking-tight">
+          {formatCurrencyString({
+            value: product.price,
+            currency: product.currency,
+          })}
+        </p>
       </div>
 
       <div className="mt-6">
         <h3 className="sr-only">Description</h3>
-        <div className="space-y-6 text-base">Description</div>
+        <div className="space-y-6 text-base">{product.description}</div>
       </div>
 
       <div className="mt-4">
         <p>
-          Size: <strong>Size</strong>
+          Size: <strong>{getSizeName(product.sizes[0])}</strong>
         </p>
-        {[].map((size) => (
+        {product.sizes.map((size) => (
           <Button key={size} variant="default" className="mr-2 mt-4">
-            Size
+            {getSizeName(size)}
           </Button>
         ))}
       </div>
