@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useToast } from "@sanity/ui"
 import { Edit, ShoppingBag } from "lucide-react"
 import { useShoppingCart } from "use-shopping-cart"
 
@@ -15,6 +16,7 @@ export function SiteHeader() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const defaultSearchQuery = searchParams.get("search") ?? ""
+  const { cartCount } = useShoppingCart()
   if (pathname.startsWith("/studio")) return null
 
   function onsubmit(e: React.SyntheticEvent<HTMLFormElement>) {
@@ -47,7 +49,7 @@ export function SiteHeader() {
             <Link href="/cart">
               <Button size="sm" variant="ghost">
                 <ShoppingBag className="h-5 w-5" />
-                <span className="ml-2 text-sm font-bold">0</span>
+                <span className="ml-2 text-sm font-bold">{cartCount}</span>
                 <span className="sr-only">Cart</span>
               </Button>
             </Link>

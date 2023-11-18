@@ -16,8 +16,8 @@ export default async function Page({ params }: Props) {
     groq`*[_type == "product" && slug.current == "${params.slug}"][0] {
       _id,
       _createdAt,
-      "id: _id,
-      name.,
+      "id": _id,
+      name,
       sku,
       images,
       price,
@@ -35,8 +35,7 @@ export default async function Page({ params }: Props) {
         {/* Product */}
         <div className="pb-20 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-12">
           {/* Product gallery */}
-          {/* <ProductGallery/> */}
-          {/* Product info */}
+          <ProductGallery product={product} />
           <ProductInfo product={product} />
         </div>
       </div>

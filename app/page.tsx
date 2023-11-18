@@ -80,7 +80,6 @@ export default async function Page({ searchParams }: Props) {
             >
               <div className="hidden lg:block">{/* Product filters */}</div>
               <ProductFilters />
-              {/* Product grid */}
               <ProductGrid products={products} />
             </div>
           </section>
