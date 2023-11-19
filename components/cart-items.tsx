@@ -16,9 +16,17 @@ import { useToast } from "@/components/ui/use-toast"
 import { CartItemsEmpty } from "@/components/cart-items-empty"
 
 export function CartItems() {
-  function removeCartItem() {}
-  const { cartDetails } = useShoppingCart()
+  const { cartDetails, removeItem, setItemQuantity } = useShoppingCart()
   const CartItems = Object.entries(cartDetails!).map(([_, product]) => product)
+  const { toast } = useToast()
+  function removeCartItem(product: Product) {
+    removeItem(product._id)
+    toast({
+      title: `${product.name} removed`,
+      description: "Product removed from cart",
+      variant: "destructive",
+    })
+  }
   if (CartItems.length === 0) return <CartItemsEmpty />
   return (
     <ul
@@ -62,25 +70,32 @@ export function CartItems() {
                 </p>
                 <p className="mt-1 text-sm font-medium">
                   Size: {/* @ts-ignore */}
-                  <strong>Size</strong>
+                  <strong>{getSizeName(product.product_data?.size)}</strong>
                 </p>
               </div>
 
               <div className="mt-4 sm:mt-0 sm:pr-9">
                 <label htmlFor={`quantity-${productIdx}`} className="sr-only">
-                  Quantity, Name
+                  Quantity, {product.name}
                 </label>
                 <Input
                   id={`quantity-${productIdx}`}
                   name={`quantity-${productIdx}`}
                   type="number"
                   className="w-16"
+                  min={1}
+                  max={10}
+                  value={product.quantity}
+                  onChange={(e) =>
+                    setItemQuantity(product._id, Number(e.target.value))
+                  }
                 />
                 <div className="absolute right-0 top-0">
                   <Button
                     variant="ghost"
                     type="button"
                     className="-mr-2 inline-flex p-2"
+                    onClick={() => removeCartItem(product)}
                   >
                     <span className="sr-only">Remove</span>
                     <X className="h-5 w-5" aria-hidden="true" />
