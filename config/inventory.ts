@@ -172,4 +172,52 @@ export const inventory: InventoryProduct[] = [
     colors: ["black"],
     currency: "USD",
   },
+  {
+    id: "dd27c79d-97c3-47bb-9172-4ea74b096f6f",
+    sku: "dock_sunglasses_1",
+    name: "Dock Sunglasses",
+    description: `Our latest collection of handcrafted sunglasses features details like UV-protective lenses in shades specifically chosen to complement each frame, and all at a price that won't break the bank. We made these sunglasses with vintage-inspired acetate frames and a keyhole bridge.`,
+    price: 5599,
+    image:
+      "https://fullstackdotso.nyc3.cdn.digitaloceanspaces.com/dock-sunglasses-1.jpg",
+    images: [
+      "https://fullstackdotso.nyc3.cdn.digitaloceanspaces.com/dock-sunglasses-1.jpg",
+    ],
+    sizes: ["one-size"],
+    categories: ["sunglasses"],
+    colors: ["black"],
+    currency: "USD",
+  },
+  {
+    id: "dd27c79d-97c3-47bb-9172-4ea74b096f6f",
+    sku: "dock_sunglasses_1",
+    name: "Dock Sunglasses",
+    description: `Our latest collection of handcrafted sunglasses features details like UV-protective lenses in shades specifically chosen to complement each frame, and all at a price that won't break the bank. We made these sunglasses with vintage-inspired acetate frames and a keyhole bridge.`,
+    price: 5599,
+    image:
+      "https://fullstackdotso.nyc3.cdn.digitaloceanspaces.com/dock-sunglasses-1.jpg",
+    images: [
+      "https://fullstackdotso.nyc3.cdn.digitaloceanspaces.com/dock-sunglasses-1.jpg",
+    ],
+    sizes: ["one-size"],
+    categories: ["sunglasses"],
+    colors: ["black"],
+    currency: "USD",
+  },
+  {
+    id: "dd27c79d-97c3-47bb-9172-4ea74b0574567",
+    sku: "dock_sunglasses_1",
+    name: "Dock Sunglasses",
+    description: `Our latest collection of handcrafted sunglasses features details like UV-protective lenses in shades specifically chosen to complement each frame, and all at a price that won't break the bank. We made these sunglasses with vintage-inspired acetate frames and a keyhole bridge.`,
+    price: 5599,
+    image:
+      "https://fullstackdotso.nyc3.cdn.digitaloceanspaces.com/dock-sunglasses-1.jpg",
+    images: [
+      "https://fullstackdotso.nyc3.cdn.digitaloceanspaces.com/dock-sunglasses-1.jpg",
+    ],
+    sizes: ["one-size"],
+    categories: ["sunglasses"],
+    colors: ["black"],
+    currency: "USD",
+  },
 ]
